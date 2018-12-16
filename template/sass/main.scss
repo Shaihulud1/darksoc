@@ -1,0 +1,70 @@
+@import "vars.scss";
+
+body{
+    padding: 0;
+    margin: 0;
+}
+.main-wrapper{
+    background-color: $backGroundColor;
+    height: 100vh;
+    color: $textColor;
+}
+.upper-head{
+        text-align: right;
+        padding-top: 7vh;
+        padding-right: 10vh;
+        h2{
+            font-size: 50px;
+            color: $neonColor;
+            text-transform: uppercase;
+            animation: neonLighting 4s infinite linear;
+        }
+}
+.sign-in-wrapper{
+    text-align: center;
+    padding-top: 20vh;
+    font-size: 20px;
+    .sign-in-nav{
+        .nav-link{
+            color:$textColor;
+        }
+        .nav-link.active{
+            background-color: $neonColor;
+        }
+        .active{
+            background-color: $neonColor;
+        }
+        width: 40vh;
+        padding-left: 5vh;
+    }
+    .sign-in-form{
+        padding-top: 60px;
+        .btn-sign-in{
+            background-color: $backGroundColor;
+            color: $textColor;
+            height: 45px;
+            width: 135px;
+            border-color: $neonColor;
+            &:hover{
+                color:$textActive;
+            }
+        }
+    }
+}
+
+@keyframes neonLighting{
+    0% {
+        text-shadow: 0 0 8px $neonColor,
+                     0 0 10px $neonColor,
+                     0 0 12px $neonColor,
+    }
+    50% {
+        text-shadow: 0 0 2px $neonColor,
+                     0 0 4px $neonColor,
+    }
+    100%{
+        text-shadow: 0 0 8px $neonColor,
+                     0 0 10px $neonColor,
+                     0 0 12px $neonColor,
+    }
+}
