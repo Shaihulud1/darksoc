@@ -3,10 +3,9 @@
 body{
     padding: 0;
     margin: 0;
+    background-color: $backGroundColor !important;
 }
 .main-wrapper{
-    background-color: $backGroundColor;
-    height: 100vh;
     color: $textColor;
 }
 .upper-head{
@@ -50,6 +49,135 @@ body{
             }
         }
     }
+}
+
+.profile-wrapper{
+    .left-side-wrapper{
+        text-align: center;
+        .ava-wrapper{
+            img{
+                vertical-align: middle;
+                max-width: $maxSideProfileWidth;
+                max-height: 300px;
+            }
+        }
+        .menu-wrapper{
+            max-width: $maxSideProfileWidth;
+            padding-top: 30px;
+            li{
+                // border: 1px double $neonColor;
+                a{
+                    background-color: $backGroundColor;
+                    color: $textColor;
+                    border-color: $neonColor;
+                    &:hover{
+                        color:$textActive;
+                    }
+                    color: $textColor;
+                    .new-mess{
+                        color:$neonColor;
+                    }
+                }
+            }
+        }
+    }
+    .right-side-wrapper{
+        .name-wrapper{
+            // padding-top: 30px;
+            // padding-left: 20px;
+        }
+        .posts-wrapper{
+            padding-top: 5vh;
+            .new-post{
+                padding-bottom: 10vh;
+            }
+            .post-item{
+                padding-bottom: 5vh;
+                .rating{
+                    .like{
+                        color:$colorLike;
+                    }
+                    .dislike{
+                        color:$colorDislike;
+                    }
+                    .comments{
+                        color:$textColor
+                    }
+                }
+                .post-img{
+                    max-height: 400px;
+                }
+            }
+        }
+    }
+}
+
+.modal-dialogs{
+    color: $textColor;
+    .modal-content{
+        background-color: $backGroundColor !important;
+        .modal-header{
+            color:$neonColor;
+            animation: neonLighting 4s infinite linear;
+        }
+        .close-dialog{
+            color:$neonColor;
+            animation: neonLighting 4s infinite linear;
+        }
+        .modal-body{
+            .profile-choose{
+                overflow-y: auto;
+                height: 50vh;
+                .profile-item{
+                    margin-bottom: 5vh;
+                    cursor: pointer;
+                    img{
+                        height: 40px;
+                        width:40px;
+                    }
+                    .nickname{
+                        padding-left: 1vh;
+                    }
+                    &:hover{
+                        background: $neonColor;
+                    }
+                }
+            }
+            .dialog-history{
+                background-color: #fff;
+                color:$backGroundColor;
+                overflow-y: auto;
+                height: 50vh;
+                h6{
+                    font-weight: bold;
+                    font-size: 18px
+                }
+                .mess{
+                    font-size: 16px;
+                }
+                .date{
+                    font-size: 10px;
+                }
+                .me{
+                    h6{
+                        text-align: right;
+                    }
+                    .date{
+                        text-align: right;
+                    }
+                }
+                .other{
+                    h6{
+                        text-align: left;
+                    }
+                    .date{
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 @keyframes neonLighting{
