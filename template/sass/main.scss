@@ -4,6 +4,17 @@ body{
     padding: 0;
     margin: 0;
     background-color: $backGroundColor !important;
+    h1,h2,h3,h4,h5,h6{
+        font-family: 'ZCOOL QingKe HuangYou', cursive;
+    }
+    a,p{
+        font-family: 'Play', sans-serif;
+    }
+    a{
+        &:hover{
+            text-decoration: none;
+        }
+    }
 }
 .main-wrapper{
     color: $textColor;
@@ -176,6 +187,29 @@ body{
                 }
             }
         }
+    }
+
+}
+.list-title{
+    padding-bottom: 5vh;
+}
+.profile-item{
+    padding-bottom: 5vh;
+    a{
+        color:$textColor;
+        &:hover{
+            color:$textColor;
+        }
+    }
+    img{
+        width: 80px;
+        height: 80px;
+    }
+    h3{
+        padding-left: 4vh;
+    }
+    img, h3{
+        display: inline-grid;
     }
 
 }
