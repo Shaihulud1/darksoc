@@ -1,4 +1,5 @@
 <div class="profile-default-index">
+    <?print_r($c);?>
     <p>self</p>
     <h1><?= $this->context->action->uniqueId ?></h1>
     <p>
