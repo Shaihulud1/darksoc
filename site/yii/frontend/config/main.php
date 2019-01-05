@@ -70,7 +70,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'profile/' => 'profile/profile/index',
+                '/' => 'profile/profile/index',
                 'profile/<id:\d+>' => 'profile/profile/view',
             ],
         ],
