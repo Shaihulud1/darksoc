@@ -72,6 +72,7 @@ return [
             'rules' => [
                 '/' => 'profile/profile/index',
                 'profile/<id:\d+>' => 'profile/profile/view',
+                'auth' => 'site/signup'
             ],
         ],
     ],

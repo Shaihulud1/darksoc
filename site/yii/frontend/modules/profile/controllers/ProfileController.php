@@ -26,9 +26,12 @@ class ProfileController extends AppController
                      [
                          'actions' => ['logout', 'index'],
                          'allow' => true,
-                         'roles' => ['@'],
+                         'roles' => ['user', 'admin', 'superadmin'],
                      ],
                  ],
+                 // 'denyCallback' => function($rule, $action) {
+                 //     return Yii::$app->response->redirect(['/site/signup']);
+                 // },
              ],
          ];
     }

@@ -16,7 +16,7 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends AppController
 {
     /**
      * {@inheritdoc}
@@ -85,7 +85,6 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -150,17 +149,29 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+        $modelSign = new SignupForm();
+        $modelLogin = new LoginForm();
+        $request = Yii::$app->request;
+        $type = $request->post('TYPE');
+        $arErrors = [];
+        if($type == 'sign'){
+            if ($modelSign->load(Yii::$app->request->post())) {
+                if ($user = $modelSign->signup()) {
+                    if (Yii::$app->getUser()->login($user)) {
+                        return $this->goHome();
+                    }
                 }
             }
+            $arErrors['SIGN'] = $modelSign->getErrors();
+        }elseif($type == 'login'){
+            if ($modelLogin->load(Yii::$app->request->post()) && $modelLogin->login()){
+                return $this->goHome();
+            }else{
+                $arErrors['LOGIN'] = $modelLogin->getErrors();
+            }
         }
-
         return $this->render('signup', [
-            'model' => $model,
+            'arErrors' => $arErrors,
         ]);
     }
 
@@ -204,7 +215,6 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
             Yii::$app->session->setFlash('success', 'New password saved.');
-
             return $this->goHome();
         }
 
